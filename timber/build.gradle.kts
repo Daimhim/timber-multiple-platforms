@@ -33,7 +33,7 @@ kotlin {
         }
         val desktopMain by getting {
             dependencies {
-                compileOnly("commons-io:commons-io:2.11.0")
+//                compileOnly("commons-io:commons-io:2.11.0")
             }
         }
         val desktopTest by getting
