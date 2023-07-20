@@ -112,7 +112,7 @@ actual object Timber {
     }
 
     @JvmStatic
-    actual inline fun asTree(): Tree {
+    actual fun asTree(): Tree {
         return Forest.asTree()
     }
 

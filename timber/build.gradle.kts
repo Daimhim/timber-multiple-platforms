@@ -1,11 +1,12 @@
-import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
-import com.vanniktech.maven.publish.JavadocJar
-import com.vanniktech.maven.publish.KotlinMultiplatform
+//import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
+//import com.vanniktech.maven.publish.JavadocJar
+//import com.vanniktech.maven.publish.KotlinMultiplatform
 
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("com.vanniktech.maven.publish.base") version "0.25.3"
+    id("maven-publish")
+//    id("com.vanniktech.maven.publish.base") version "0.25.3"
 }
 
 group = "timber.multiplatform.log"
@@ -65,10 +66,4 @@ publishing {
             url = uri("../repo")
         }
     }
-}
-
-mavenPublishing {
-    configure(KotlinMultiplatform(
-        javadocJar = JavadocJar.None()
-    ))
 }

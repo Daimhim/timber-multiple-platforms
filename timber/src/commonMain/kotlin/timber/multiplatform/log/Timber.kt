@@ -47,7 +47,7 @@ expect object Timber {
     fun printlnStackTrace(tag:String? = "")
 
     @JvmStatic
-    inline fun asTree(): Tree
+    fun asTree(): Tree
     @JvmStatic
     fun tag(tag: String): Tree
 
