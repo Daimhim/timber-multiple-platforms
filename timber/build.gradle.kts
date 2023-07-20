@@ -5,7 +5,7 @@ import com.vanniktech.maven.publish.KotlinMultiplatform
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("com.vanniktech.maven.publish.base")
+    id("com.vanniktech.maven.publish.base") version "0.25.3"
 }
 
 group = "timber.multiplatform.log"
