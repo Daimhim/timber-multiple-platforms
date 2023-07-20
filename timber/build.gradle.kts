@@ -1,20 +1,27 @@
+import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
+import com.vanniktech.maven.publish.JavadocJar
+import com.vanniktech.maven.publish.KotlinMultiplatform
 
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    id("com.vanniktech.maven.publish.base")
 }
 
 group = "timber.multiplatform.log"
-version = "1.0-SNAPSHOT"
+version = "2.5.0-SNAPSHOT"
 
 kotlin {
-    android()
+    android(){
+        publishLibraryVariants("release")
+    }
     jvm("desktop") {
         jvmToolchain(11)
     }
     sourceSets {
         val commonMain by getting {
             dependencies {
+
             }
         }
         val commonTest by getting {
@@ -51,4 +58,17 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+}
+publishing {
+    repositories {
+        maven {
+            url = uri("../repo")
+        }
+    }
+}
+
+mavenPublishing {
+    configure(KotlinMultiplatform(
+        javadocJar = JavadocJar.None()
+    ))
 }
