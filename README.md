@@ -13,10 +13,11 @@ Add it in your root build.gradle at the end of repositories:
 ### Step 2. Add the dependency
 ```
 dependencies {
-	        implementation 'com.github.Daimhim.timber-multiple-platforms:timber:1.0.3'
-          // or
-          implementation 'com.github.Daimhim.timber-multiple-platforms:timber-android:1.0.3'
-	}
+	implementation 'com.github.Daimhim.timber-multiple-platforms:timber:1.0.5'
+	// or
+	implementation 'com.github.Daimhim.timber-multiple-platforms:timber-android:1.0.5'
+	implementation 'com.github.Daimhim.timber-multiple-platforms:timber-desktop:1.0.5'
+}
 ```
 
 ### 项目在此基础上开发：
