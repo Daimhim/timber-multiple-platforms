@@ -1,0 +1,104 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "timber.multiplatform.log",
+    "module": "timber",
+    "version": "2.5.5-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "metadataApiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-common",
+          "version": {
+            "requires": "1.8.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "timber-metadata-2.5.5-SNAPSHOT.jar",
+          "url": "timber-2.5.5-SNAPSHOT.jar",
+          "size": 699,
+          "sha512": "7a5afce45352697dbbca2f1b55a146cd109d832b28e4f04e0a7c77a6ec16d431be208193d46c5f68ea12e3d175ade560fcc42a86fb879202b863a9707ea04c1e",
+          "sha256": "6847a2b2be43d75e15ba8a6c53ff3696a70b932414cd0ca964731ee162fe8768",
+          "sha1": "81df3f159a76d35d2912569232917761fbefbb91",
+          "md5": "07ad8e791af16842f48c98dd2696a64c"
+        }
+      ]
+    },
+    {
+      "name": "releaseApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "available-at": {
+        "url": "../../timber-android/2.5.5-SNAPSHOT/timber-android-2.5.5-SNAPSHOT.module",
+        "group": "timber.multiplatform.log",
+        "module": "timber-android",
+        "version": "2.5.5-SNAPSHOT"
+      }
+    },
+    {
+      "name": "releaseRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "available-at": {
+        "url": "../../timber-android/2.5.5-SNAPSHOT/timber-android-2.5.5-SNAPSHOT.module",
+        "group": "timber.multiplatform.log",
+        "module": "timber-android",
+        "version": "2.5.5-SNAPSHOT"
+      }
+    },
+    {
+      "name": "desktopApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../timber-desktop/2.5.5-SNAPSHOT/timber-desktop-2.5.5-SNAPSHOT.module",
+        "group": "timber.multiplatform.log",
+        "module": "timber-desktop",
+        "version": "2.5.5-SNAPSHOT"
+      }
+    },
+    {
+      "name": "desktopRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../timber-desktop/2.5.5-SNAPSHOT/timber-desktop-2.5.5-SNAPSHOT.module",
+        "group": "timber.multiplatform.log",
+        "module": "timber-desktop",
+        "version": "2.5.5-SNAPSHOT"
+      }
+    }
+  ]
+}

@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "timber.multiplatform.log"
-version = "2.5.0-SNAPSHOT"
+version = "2.5.5-SNAPSHOT"
 
 kotlin {
     android(){

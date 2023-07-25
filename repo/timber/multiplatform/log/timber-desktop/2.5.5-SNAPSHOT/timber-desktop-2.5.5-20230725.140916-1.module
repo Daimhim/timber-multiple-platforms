@@ -1,0 +1,91 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../timber/2.5.5-SNAPSHOT/timber-2.5.5-SNAPSHOT.module",
+    "group": "timber.multiplatform.log",
+    "module": "timber",
+    "version": "2.5.5-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "desktopApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.8.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-common",
+          "version": {
+            "requires": "1.8.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "timber-desktop-2.5.5-SNAPSHOT.jar",
+          "url": "timber-desktop-2.5.5-SNAPSHOT.jar",
+          "size": 17935,
+          "sha512": "0de585d0a4694cf9ae0b5d12f30b5fc7a83e4b0cdf43fc98ce365df5f3bbd2ee30f701a3f7e4c0af17c13d120870248c47d80d1c457bc3f7a1b2917df1e95db6",
+          "sha256": "68ea316ef4e186c9657b0ef8c524c5a19846a82e23ace79c339d926988812bd5",
+          "sha1": "d34366e444a5504a8a82f9ec28f6626bde1856fd",
+          "md5": "55beae26a0945febb47d53024fd6559c"
+        }
+      ]
+    },
+    {
+      "name": "desktopRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.8.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-common",
+          "version": {
+            "requires": "1.8.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "timber-desktop-2.5.5-SNAPSHOT.jar",
+          "url": "timber-desktop-2.5.5-SNAPSHOT.jar",
+          "size": 17935,
+          "sha512": "0de585d0a4694cf9ae0b5d12f30b5fc7a83e4b0cdf43fc98ce365df5f3bbd2ee30f701a3f7e4c0af17c13d120870248c47d80d1c457bc3f7a1b2917df1e95db6",
+          "sha256": "68ea316ef4e186c9657b0ef8c524c5a19846a82e23ace79c339d926988812bd5",
+          "sha1": "d34366e444a5504a8a82f9ec28f6626bde1856fd",
+          "md5": "55beae26a0945febb47d53024fd6559c"
+        }
+      ]
+    }
+  ]
+}
