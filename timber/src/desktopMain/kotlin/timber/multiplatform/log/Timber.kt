@@ -8,12 +8,12 @@ actual object Timber {
 
     @JvmStatic
     actual fun v(message: String?, vararg args: Any?) {
-        Forest.v(message, args)
+        Forest.v(message, *args)
     }
 
     @JvmStatic
     actual fun v(t: Throwable?, message: String?, vararg args: Any?) {
-        Forest.v(t, message, args)
+        Forest.v(t, message, *args)
     }
 
     @JvmStatic
@@ -23,12 +23,12 @@ actual object Timber {
 
     @JvmStatic
     actual fun d(message: String?, vararg args: Any?) {
-        Forest.d(message, args)
+        Forest.d(message, *args)
     }
 
     @JvmStatic
     actual fun d(t: Throwable?, message: String?, vararg args: Any?) {
-        Forest.d(t, message, args)
+        Forest.d(t, message, *args)
     }
 
     @JvmStatic
@@ -38,12 +38,12 @@ actual object Timber {
 
     @JvmStatic
     actual fun i(message: String?, vararg args: Any?) {
-        Forest.i(message, args)
+        Forest.i(message, *args)
     }
 
     @JvmStatic
     actual fun i(t: Throwable?, message: String?, vararg args: Any?) {
-        Forest.i(t, message, args)
+        Forest.i(t, message, *args)
     }
 
     @JvmStatic
@@ -53,12 +53,12 @@ actual object Timber {
 
     @JvmStatic
     actual fun w(message: String?, vararg args: Any?) {
-        Forest.w(message, args)
+        Forest.w(message, *args)
     }
 
     @JvmStatic
     actual fun w(t: Throwable?, message: String?, vararg args: Any?) {
-        Forest.w(t, message, args)
+        Forest.w(t, message, *args)
     }
 
     @JvmStatic
@@ -68,12 +68,12 @@ actual object Timber {
 
     @JvmStatic
     actual fun e(message: String?, vararg args: Any?) {
-        Forest.e(message, args)
+        Forest.e(message, *args)
     }
 
     @JvmStatic
     actual fun e(t: Throwable?, message: String?, vararg args: Any?) {
-        Forest.e(t, message, args)
+        Forest.e(t, message, *args)
     }
 
     @JvmStatic
@@ -83,12 +83,12 @@ actual object Timber {
 
     @JvmStatic
     actual fun wtf(message: String?, vararg args: Any?) {
-        Forest.wtf(message, args)
+        Forest.wtf(message, *args)
     }
 
     @JvmStatic
     actual fun wtf(t: Throwable?, message: String?, vararg args: Any?) {
-        Forest.wtf(t, message, args)
+        Forest.wtf(t, message, *args)
     }
 
     @JvmStatic
@@ -98,12 +98,12 @@ actual object Timber {
 
     @JvmStatic
     actual fun log(priority: Int, message: String?, vararg args: Any?) {
-        Forest.log(priority, message, args)
+        Forest.log(priority, message, *args)
     }
 
     @JvmStatic
     actual fun log(priority: Int, t: Throwable?, message: String?, vararg args: Any?) {
-        Forest.log(priority, t, message, args)
+        Forest.log(priority, t, message, *args)
     }
 
     @JvmStatic

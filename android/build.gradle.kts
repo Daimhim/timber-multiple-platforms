@@ -17,11 +17,11 @@ dependencies {
 }
 
 android {
-    compileSdkVersion(33)
+    compileSdkVersion(31)
     defaultConfig {
         applicationId = "org.daimhim.timber.android"
         minSdkVersion(22)
-        targetSdkVersion(33)
+        targetSdkVersion(31)
         versionCode = 1
         versionName = "1.0-SNAPSHOT"
     }

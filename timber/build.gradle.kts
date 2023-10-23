@@ -1,16 +1,11 @@
-//import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
-//import com.vanniktech.maven.publish.JavadocJar
-//import com.vanniktech.maven.publish.KotlinMultiplatform
-
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("maven-publish")
-//    id("com.vanniktech.maven.publish.base") version "0.25.3"
 }
 
 group = "timber.multiplatform.log"
-version = "2.5.5-SNAPSHOT"
+version = "2.5.6-SNAPSHOT"
 
 kotlin {
     android(){
@@ -49,15 +44,15 @@ kotlin {
 }
 
 android {
-    compileSdkVersion(33)
+    compileSdkVersion(31)
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdkVersion(22)
-        targetSdkVersion(33)
+        targetSdkVersion(31)
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
 publishing {
