@@ -12,7 +12,7 @@ kotlin {
         publishLibraryVariants("release")
     }
     jvm("desktop") {
-        jvmToolchain(11)
+//        jvmToolchain(11)
     }
     sourceSets {
         val commonMain by getting {
@@ -47,18 +47,18 @@ android {
     compileSdkVersion(31)
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdkVersion(22)
-        targetSdkVersion(31)
+        minSdk = 22
+        targetSdk = 31
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
+//    compileOptions {
+//        sourceCompatibility = JavaVersion.VERSION_11
+//        targetCompatibility = JavaVersion.VERSION_11
+//    }
 }
-publishing {
-    repositories {
-        maven {
-            url = uri("../repo")
-        }
-    }
-}
+//publishing {
+//    repositories {
+//        maven {
+//            url = uri("../repo")
+//        }
+//    }
+//}

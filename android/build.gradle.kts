@@ -20,14 +20,14 @@ android {
     compileSdkVersion(31)
     defaultConfig {
         applicationId = "org.daimhim.timber.android"
-        minSdkVersion(22)
-        targetSdkVersion(31)
+        minSdk = 22
+        targetSdk = 31
         versionCode = 1
         versionName = "1.0-SNAPSHOT"
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     buildTypes {
         getByName("release") {
