@@ -9,6 +9,10 @@ object Forest : Tree() {
         treeArray.forEach { it.v(message, *args) }
     }
 
+    override fun v(tag: String?, message: String?, vararg args: Any?) {
+        treeArray.forEach { it.v(tag, message, *args) }
+    }
+
     /** Log a verbose exception and a message with optional format args. */
     override fun v(t: Throwable?, message: String?, vararg args: Any?) {
         treeArray.forEach { it.v(t, message, *args) }
@@ -22,6 +26,10 @@ object Forest : Tree() {
     /** Log a debug message with optional format args. */
     override fun d(message: String?, vararg args: Any?) {
         treeArray.forEach { it.d(message, *args) }
+    }
+
+    override fun d(tag: String?, message: String?, vararg args: Any?) {
+        treeArray.forEach { it.d(tag, message, *args) }
     }
 
     /** Log a debug exception and a message with optional format args. */
@@ -39,6 +47,9 @@ object Forest : Tree() {
         treeArray.forEach { it.i(message, *args) }
     }
 
+    override fun i(tag: String?, message: String?, vararg args: Any?) {
+        treeArray.forEach { it.i(tag, message, *args) }
+    }
     /** Log an info exception and a message with optional format args. */
     override fun i(t: Throwable?, message: String?, vararg args: Any?) {
         treeArray.forEach { it.i(t, message, *args) }
@@ -52,6 +63,10 @@ object Forest : Tree() {
     /** Log a warning message with optional format args. */
     override fun w(message: String?, vararg args: Any?) {
         treeArray.forEach { it.w(message, *args) }
+    }
+
+    override fun w(tag: String?, message: String?, vararg args: Any?) {
+        treeArray.forEach { it.w(tag, message, *args) }
     }
 
     /** Log a warning exception and a message with optional format args. */
@@ -69,6 +84,9 @@ object Forest : Tree() {
         treeArray.forEach { it.e(message, *args) }
     }
 
+    override fun e(tag: String?, message: String?, vararg args: Any?) {
+        treeArray.forEach { it.e(tag, message, *args) }
+    }
     /** Log an error exception and a message with optional format args. */
     override fun e(t: Throwable?, message: String?, vararg args: Any?) {
         treeArray.forEach { it.e(t, message, *args) }
