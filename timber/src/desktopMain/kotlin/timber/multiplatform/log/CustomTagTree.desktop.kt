@@ -5,7 +5,9 @@ import java.io.StringWriter
 import java.net.UnknownHostException
 import java.util.*
 
-actual class CustomTagTree actual constructor(private val customTag:String) : Tree() {
+actual class CustomTagTree actual constructor(
+    private val customTag:String,
+    vararg logStackFiltering:String) : Tree() {
     private val LOG_ID_MAIN = 0
     private val LOG_ID_RADIO = 1
     private val LOG_ID_EVENTS = 2
@@ -15,7 +17,10 @@ actual class CustomTagTree actual constructor(private val customTag:String) : Tr
     override val tag: String?
         get() = customTag
 
-
+    private val fqcnIgnore = arrayOf<String>(
+        *LOG_STACK_FILTERING,
+        *logStackFiltering
+    )
 
     /**
      * Break up `message` into maximum-length chunks (if needed) and send to either
@@ -37,11 +42,7 @@ actual class CustomTagTree actual constructor(private val customTag:String) : Tr
         val elements = Thread.currentThread().stackTrace
         for (i in elements.size - 2 downTo 0) {
             val caller = elements[i]
-            if (Forest::class.java.name == caller.className
-                || Tree::class.java.name == caller.className
-                || DebugTree::class.java.name == caller.className
-                || Timber::class.java.name == caller.className
-            ) {
+            if (fqcnIgnore.indexOf(caller.className) >= 0){
                 targetElement = elements[i + 1]
                 break
             }

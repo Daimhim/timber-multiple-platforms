@@ -13,16 +13,9 @@ actual class DebugTree : Tree() {
     private val LOG_ID_SYSTEM = 3
     private val LOG_ID_CRASH = 4
 
-    private val fqcnIgnore = listOf(
-        Timber::class.java.name,
-        Forest::class.java.name,
-        Tree::class.java.name,
-        DebugTree::class.java.name
-    )
-
     override val tag: String?
         get() = super.tag ?: Throwable().stackTrace
-            .first { it.className !in fqcnIgnore }
+            .first { it.className !in LOG_STACK_FILTERING }
             .let(::createStackElementTag)
 
     /**
@@ -62,11 +55,7 @@ actual class DebugTree : Tree() {
         val elements = Thread.currentThread().stackTrace
         for (i in elements.size - 2 downTo 0) {
             val caller = elements[i]
-            if (Forest::class.java.name == caller.className
-                || Tree::class.java.name == caller.className
-                || DebugTree::class.java.name == caller.className
-                || Timber::class.java.name == caller.className
-            ) {
+            if (LOG_STACK_FILTERING.indexOf(caller.className) >= 0) {
                 targetElement = elements[i + 1]
                 break
             }

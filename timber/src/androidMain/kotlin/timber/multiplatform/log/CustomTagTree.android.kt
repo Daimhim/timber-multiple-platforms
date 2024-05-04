@@ -3,12 +3,17 @@ package timber.multiplatform.log
 import android.util.Log
 import java.util.*
 
-actual class CustomTagTree actual constructor(private val customTag:String) : Tree() {
+actual class CustomTagTree actual constructor(
+    private val customTag:String,
+    vararg logStackFiltering:String) : Tree() {
 
     override val tag: String?
         get() = customTag
 
-
+    private val fqcnIgnore = arrayOf<String>(
+        *LOG_STACK_FILTERING,
+        *logStackFiltering
+    )
     /**
      * Break up `message` into maximum-length chunks (if needed) and send to either
      * [ProxyLog.println()][ProxyLog.println] or
@@ -51,11 +56,7 @@ actual class CustomTagTree actual constructor(private val customTag:String) : Tr
         val elements = Thread.currentThread().stackTrace
         for (i in elements.size - 2 downTo 0) {
             val caller = elements[i]
-            if (Forest::class.java.name == caller.className
-                || Tree::class.java.name == caller.className
-                || DebugTree::class.java.name == caller.className
-                || Timber::class.java.name == caller.className
-            ) {
+            if (fqcnIgnore.indexOf(caller.className) >= 0){
                 targetElement = elements[i + 1]
                 break
             }

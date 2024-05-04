@@ -11,6 +11,13 @@ abstract class Tree {
     val WARN = 5
     val ERROR = 6
     val ASSERT = 7
+    val LOG_STACK_FILTERING = arrayOf(
+        Forest::class.java.name,
+        Tree::class.java.name,
+        DebugTree::class.java.name,
+        Timber::class.java.name,
+        CustomTagTree::class.java.name,
+    )
     
     @get:JvmSynthetic // Hide from public API.
     internal val explicitTag = ThreadLocal<String>()

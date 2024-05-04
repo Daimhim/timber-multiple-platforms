@@ -10,7 +10,14 @@ class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Timber.plant(DebugTree())
-        Timber.plant(CustomTagTree("wwwwwwww"))
         Timber.i("Hi!")
+
+        val customTagTree = CustomTagTree("hihihihi")
+        customTagTree.i("CustomTagTree Hi!")
+
+        val testTool = TestTool()
+        testTool.i("TestTool i")
     }
+
+
 }

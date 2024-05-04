@@ -151,4 +151,30 @@ actual object Timber {
         return Forest.treeCount
     }
 
+
+    @JvmStatic
+    actual fun v(tag: String?, message: String?, vararg args: Any?) {
+        Forest.v(tag, message, *args)
+    }
+
+    @JvmStatic
+    actual fun d(tag: String?, message: String?, vararg args: Any?) {
+        Forest.d(tag, message, *args)
+    }
+
+    @JvmStatic
+    actual fun i(tag: String?, message: String?, vararg args: Any?) {
+        Forest.i(tag, message, *args)
+    }
+
+    @JvmStatic
+    actual fun w(tag: String?, message: String?, vararg args: Any?) {
+        Forest.w(tag, message, *args)
+    }
+
+    @JvmStatic
+    actual fun e(tag: String?, message: String?, vararg args: Any?) {
+        Forest.e(tag, message, *args)
+    }
+
 }
