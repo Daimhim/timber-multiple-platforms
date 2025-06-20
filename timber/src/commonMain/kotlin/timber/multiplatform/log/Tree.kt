@@ -1,8 +1,5 @@
 package timber.multiplatform.log
 
-import java.io.PrintWriter
-import java.io.StringWriter
-
 /** A facade for handling logging calls. Install instances via [`Timber.plant()`][.plant]. */
 abstract class Tree {
     val VERBOSE = 2
@@ -12,10 +9,8 @@ abstract class Tree {
     val ERROR = 6
     val ASSERT = 7
     
-    @get:JvmSynthetic // Hide from public API.
     internal val explicitTag = ThreadLocal<String>()
 
-    @get:JvmSynthetic // Hide from public API.
     internal open val tag: String?
         get() {
             val tag = explicitTag.get()
@@ -170,13 +165,7 @@ abstract class Tree {
     protected open fun formatMessage(message: String, args: Array<out Any?>) = message.format(*args)
 
     private fun getStackTraceString(t: Throwable): String {
-        // Don't replace this with getStackTraceString() - it hides
-        // UnknownHostException, which is not what we want.
-        val sw = StringWriter(256)
-        val pw = PrintWriter(sw, false)
-        t.printStackTrace(pw)
-        pw.flush()
-        return sw.toString()
+        return StackTraceUtils.getStackTraceString(t)
     }
 
     /**

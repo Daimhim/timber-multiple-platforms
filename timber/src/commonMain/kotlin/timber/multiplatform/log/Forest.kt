@@ -1,6 +1,5 @@
 package timber.multiplatform.log
 
-import java.util.*
 
 object Forest : Tree() {
     /** Log a verbose message with optional format args. */
@@ -125,7 +124,6 @@ object Forest : Tree() {
         "NOTHING_TO_INLINE", // Kotlin users should reference `Tree.Forest` directly.
         "NON_FINAL_MEMBER_IN_OBJECT" // For japicmp check.
     )
-    @JvmStatic
     open inline fun asTree(): Tree = this
 
     /** Set a one-time tag for use on the next logging call. */
@@ -139,10 +137,8 @@ object Forest : Tree() {
     /** Add a new logging tree. */
     fun plant(tree: Tree) {
         require(tree !== this) { "Cannot plant Timber into itself." }
-        synchronized(trees) {
-            trees.add(tree)
-            treeArray = trees.toTypedArray()
-        }
+        trees.add(tree)
+        treeArray = trees.toTypedArray()
     }
 
     /** Adds new logging trees. */
@@ -151,39 +147,30 @@ object Forest : Tree() {
             requireNotNull(tree) { "trees contained null" }
             require(tree !== this) { "Cannot plant Timber into itself." }
         }
-        synchronized(this.trees) {
-            Collections.addAll(this.trees, *trees)
-            treeArray = this.trees.toTypedArray()
-        }
+        this.trees.addAll(trees.toMutableList())
+        treeArray = this.trees.toTypedArray()
     }
 
     /** Remove a planted tree. */
     fun uproot(tree: Tree) {
-        synchronized(trees) {
-            require(trees.remove(tree)) { "Cannot uproot tree which is not planted: $tree" }
-            treeArray = trees.toTypedArray()
-        }
+        require(trees.remove(tree)) { "Cannot uproot tree which is not planted: $tree" }
+        treeArray = trees.toTypedArray()
     }
 
     /** Remove all planted trees. */
     fun uprootAll() {
-        synchronized(trees) {
-            trees.clear()
-            treeArray = emptyArray()
-        }
+        trees.clear()
+        treeArray = emptyArray()
     }
 
     /** Return a copy of all planted [trees][Tree]. */
     fun forest(): List<Tree> {
-        synchronized(trees) {
-            return Collections.unmodifiableList(trees.toList())
-        }
+        return trees.toList()
     }
 
-    @get:[JvmStatic JvmName("treeCount")]
     val treeCount get() = treeArray.size
 
     // Both fields guarded by 'trees'.
-    private val trees = ArrayList<Tree>()
-    @Volatile private var treeArray = emptyArray<Tree>()
+    private val trees = mutableListOf<Tree>()
+    private var treeArray = emptyArray<Tree>()
 }
