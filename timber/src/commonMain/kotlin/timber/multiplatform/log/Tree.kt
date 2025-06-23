@@ -8,17 +8,9 @@ abstract class Tree {
     val WARN = 5
     val ERROR = 6
     val ASSERT = 7
-    
-    internal val explicitTag = ThreadLocal<String>()
 
-    internal open val tag: String?
-        get() {
-            val tag = explicitTag.get()
-            if (tag != null) {
-                explicitTag.remove()
-            }
-            return tag
-        }
+    abstract fun getTag(): String?
+    abstract fun setTag(tag: String?)
 
     /** Log a verbose message with optional format args. */
     open fun v(message: String?, vararg args: Any?) {
@@ -96,12 +88,7 @@ abstract class Tree {
     }
 
     open fun printlnStackTrace(tag:String?=""){
-        Thread
-            .currentThread()
-            .stackTrace
-            .forEach {
-                i("${tag}$it")
-            }
+        StackTraceUtils.printStackTrace(this,tag)
     }
 
     /** Log an assert message with optional format args. */
@@ -139,7 +126,7 @@ abstract class Tree {
 
     private fun prepareLog(priority: Int, t: Throwable?, message: String?, vararg args: Any?) {
         // Consume tag even when message is not loggable so that next message is correctly tagged.
-        val tag = tag
+        val tag = getTag()
         if (!isLoggable(tag, priority)) {
             return
         }
@@ -162,7 +149,7 @@ abstract class Tree {
     }
 
     /** Formats a log message with optional arguments. */
-    protected open fun formatMessage(message: String, args: Array<out Any?>) = message.format(*args)
+    protected open fun formatMessage(message: String, args: Array<out Any?>) = StackTraceUtils.stringFormat(message,args)
 
     private fun getStackTraceString(t: Throwable): String {
         return StackTraceUtils.getStackTraceString(t)

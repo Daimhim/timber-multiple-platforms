@@ -6,7 +6,7 @@ import java.net.UnknownHostException
 import java.util.*
 import java.util.regex.Pattern
 
-actual class DebugTree : Tree() {
+actual open class DebugTree : Tree() {
     private val LOG_ID_MAIN = 0
     private val LOG_ID_RADIO = 1
     private val LOG_ID_EVENTS = 2
@@ -20,10 +20,6 @@ actual class DebugTree : Tree() {
         DebugTree::class.java.name
     )
 
-    override val tag: String?
-        get() = super.tag ?: Throwable().stackTrace
-            .first { it.className !in fqcnIgnore }
-            .let(::createStackElementTag)
 
     /**
      * Extract the tag which should be used for the message from the `element`. By default
@@ -40,6 +36,18 @@ actual class DebugTree : Tree() {
         }
         // Tag length limit was removed in API 26.
         return tag
+    }
+
+    private var tag: String? = null
+    override fun getTag(): String? {
+        tag ?: Throwable().stackTrace
+            .first { it.className !in fqcnIgnore }
+            .let(::createStackElementTag)
+        return tag
+    }
+
+    override fun setTag(tag: String?) {
+        this.tag = tag
     }
 
     /**

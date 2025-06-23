@@ -12,10 +12,13 @@ actual class CustomTagTree actual constructor(private val customTag:String) : Tr
     private val LOG_ID_SYSTEM = 3
     private val LOG_ID_CRASH = 4
 
-    override val tag: String?
-        get() = customTag
+    override fun getTag(): String? {
+        return customTag
+    }
 
+    override fun setTag(tag: String?) {
 
+    }
 
     /**
      * Break up `message` into maximum-length chunks (if needed) and send to either

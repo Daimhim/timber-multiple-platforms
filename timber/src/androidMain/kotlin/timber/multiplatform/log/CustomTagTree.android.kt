@@ -5,9 +5,13 @@ import java.util.*
 
 actual class CustomTagTree actual constructor(private val customTag:String) : Tree() {
 
-    override val tag: String?
-        get() = customTag
+    override fun getTag(): String? {
+        return customTag
+    }
 
+    override fun setTag(tag: String?) {
+
+    }
 
     /**
      * Break up `message` into maximum-length chunks (if needed) and send to either

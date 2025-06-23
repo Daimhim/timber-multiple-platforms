@@ -7,5 +7,6 @@ expect object StackTraceUtils {
      * @return 包含堆栈跟踪的字符串
      */
     fun getStackTraceString(throwable: Throwable): String
-
+    fun printStackTrace(tree:Tree,tag:String?="")
+    fun stringFormat(message: String, args: Array<out Any?>): String
 }

@@ -2,6 +2,14 @@ package timber.multiplatform.log
 
 
 object Forest : Tree() {
+    override fun getTag(): String? {
+        TODO("Not yet implemented")
+    }
+
+    override fun setTag(tag: String?) {
+        TODO("Not yet implemented")
+    }
+
     /** Log a verbose message with optional format args. */
 
     override fun v(message: String?, vararg args: Any?) {
@@ -129,7 +137,7 @@ object Forest : Tree() {
     /** Set a one-time tag for use on the next logging call. */
     fun tag(tag: String): Tree {
         for (tree in treeArray) {
-            tree.explicitTag.set(tag)
+            tree.setTag(tag)
         }
         return this
     }

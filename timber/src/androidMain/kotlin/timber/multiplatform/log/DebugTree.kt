@@ -5,7 +5,7 @@ import android.util.Log
 import java.util.*
 import java.util.regex.Pattern
 
-actual class DebugTree : Tree() {
+actual open class DebugTree : Tree() {
 
     private val fqcnIgnore = listOf(
         Timber::class.java.name,
@@ -14,10 +14,17 @@ actual class DebugTree : Tree() {
         DebugTree::class.java.name
     )
 
-    override val tag: String?
-        get() = super.tag ?: Throwable().stackTrace
+    private var tag: String? = null
+    override fun getTag(): String? {
+        tag ?: Throwable().stackTrace
             .first { it.className !in fqcnIgnore }
             .let(::createStackElementTag)
+        return tag
+    }
+
+    override fun setTag(tag: String?) {
+        this.tag = tag
+    }
 
     /**
      * Extract the tag which should be used for the message from the `element`. By default

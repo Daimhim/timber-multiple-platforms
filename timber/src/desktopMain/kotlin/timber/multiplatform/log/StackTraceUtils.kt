@@ -13,4 +13,17 @@ actual object StackTraceUtils {
         pw.flush()
         return sw.toString()
     }
+
+    actual fun printStackTrace(tree:Tree,tag:String?){
+        Thread
+            .currentThread()
+            .stackTrace
+            .forEach {
+                tree.i("${tag}$it")
+            }
+    }
+
+    actual fun stringFormat(message: String, args: Array<out Any?>): String{
+        return String.format(message,*args)
+    }
 }
