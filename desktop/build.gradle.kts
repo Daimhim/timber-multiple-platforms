@@ -2,8 +2,7 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") // 修复了缺少的括号和引号
-//    id("maven-publish") // 正确应用Maven发布插件
+    id("org.jetbrains.compose")
 }
 
 group = "org.daimhim.timber"
@@ -13,14 +12,6 @@ version = "1.0-SNAPSHOT"
 kotlin {
     jvm {
         withJava()
-        // 将JAR配置移至jvm目标平台内
-//        tasks.getByName<Jar>("jar") {
-//            archiveFileName.set("${project.name}-${project.version}.jar")
-//        }
-        tasks.named<Jar>("jar") {
-            // 使用archiveFileName替代archiveName
-            archiveFileName.set("${project.name}-${project.version}.jar")
-        }
     }
     sourceSets {
         val jvmMain by getting {
@@ -43,26 +34,3 @@ compose.desktop {
         }
     }
 }
-// 配置Maven发布
-//publishing {
-//    publications {
-//        create<MavenPublication>("maven") {
-//            from(components["java"])
-//            // 使用archiveFileName替代已弃用的archiveName
-//            artifact(tasks["jar"]) {
-//                classifier = ""
-//                builtBy(tasks["jar"])
-//            }
-//        }
-//    }
-//}
-
-//kotlin {
-//    jvm {
-//        withJava()
-//        tasks.named<Jar>("jar") {
-//            // 使用archiveFileName替代archiveName
-//            archiveFileName.set("${project.name}-${project.version}.jar")
-//        }
-//    }
-//}

@@ -22,4 +22,4 @@ pluginManagement {
 
 rootProject.name = "timber-multiple-platforms"
 
-include(":android", ":desktop", ":timber")
+include(":timber")

@@ -1,7 +1,7 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-//    id("maven-publish")
+    id("maven-publish")
 }
 
 group = "timber.multiplatform.log"

@@ -7,9 +7,6 @@ plugins {
 group = "org.daimhim.timber"
 version = "1.0-SNAPSHOT"
 
-repositories {
-    jcenter()
-}
 
 dependencies {
     implementation(project(":timber"))
